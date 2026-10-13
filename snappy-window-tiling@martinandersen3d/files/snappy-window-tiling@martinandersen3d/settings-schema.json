@@ -10,7 +10,7 @@
         "features-section": {
             "type": "section",
             "title": "Features",
-            "keys": ["enable-drag-snapping", "enable-keyboard-snapping", "enable-workspace-switcher", "show-help-text", "show-credits", "overlay-mode"]
+            "keys": ["enable-drag-snapping", "enable-keyboard-snapping", "enable-workspace-switcher", "show-help-text", "show-credits", "overlay-mode", "theme"]
         },
         "padding-section": {
             "type": "section",
@@ -96,6 +96,16 @@
             "Docked": "docked"
         },
         "default": "floating"
+    },
+    "theme": {
+        "type": "combobox",
+        "description": "Theme",
+        "tooltip": "Dark: solid dark panel. Glass: translucent Windows 11 style glass panel.",
+        "options": {
+            "Dark": "dark",
+            "Glass": "glass"
+        },
+        "default": "dark"
     },
     "outer-screen-padding": {
         "type": "spinbutton",
