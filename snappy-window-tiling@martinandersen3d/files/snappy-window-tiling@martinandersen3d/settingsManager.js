@@ -139,6 +139,14 @@ function isDockedMode() {
     }
 }
 
+function isGlassTheme() {
+    try {
+        return _settings ? _settings.getValue("theme") === "glass" : false;
+    } catch (e) {
+        return false;
+    }
+}
+
 /**
  * Connect a callback to a settings key change.
  * @param {string} key - settings key name

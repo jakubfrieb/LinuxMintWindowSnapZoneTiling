@@ -474,6 +474,7 @@ function enable() {
         SettingsManager.connectChanged("show-help-text", rebuildOverlay);
         SettingsManager.connectChanged("show-credits", rebuildOverlay);
         SettingsManager.connectChanged("overlay-mode", rebuildOverlay);
+        SettingsManager.connectChanged("theme", rebuildOverlay);
 
         grabBeginId = global.display.connect('grab-op-begin', onGrabBegin);
         grabEndId = global.display.connect('grab-op-end', onGrabEnd);
@@ -513,6 +514,7 @@ function buildOverlayUIOnce() {
 
         isDocked = SettingsManager ? SettingsManager.isDockedMode() : false;
         groupGridCols = isDocked ? DOCKED_GRID_COLS : FLOATING_GRID_COLS;
+        const isGlass = SettingsManager ? SettingsManager.isGlassTheme() : false;
 
         const activeLayouts = getActiveLayoutGroups();
         const groupRows = Math.ceil(activeLayouts.length / groupGridCols);
@@ -539,7 +541,7 @@ function buildOverlayUIOnce() {
             can_focus: true,
             width: popupWidth,
             height: popupHeight,
-            style_class: 'drag-overlay-container',
+            style_class: isGlass ? 'drag-overlay-container snappy-glass' : 'drag-overlay-container',
             visible: false
         });
 
