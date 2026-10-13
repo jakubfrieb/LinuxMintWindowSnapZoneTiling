@@ -131,6 +131,14 @@ function isCreditsEnabled() {
     }
 }
 
+function isDockedMode() {
+    try {
+        return _settings ? _settings.getValue("overlay-mode") === "docked" : false;
+    } catch (e) {
+        return false;
+    }
+}
+
 /**
  * Connect a callback to a settings key change.
  * @param {string} key - settings key name
